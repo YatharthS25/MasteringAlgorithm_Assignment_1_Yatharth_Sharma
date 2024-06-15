@@ -19,11 +19,11 @@ int main(){
     int n;
     cin >> n;
     int ans = 0;
-    vector<pair<int,int> > pr(n);
+    vector<pair<long long,int> > pr(n);
     for(int i=0;i<n;i++){
         string tmp;
         cin >> tmp;
-        pr[i].first = digit_sum(stol(tmp));
+        pr[i].first = digit_sum(stoll(tmp, nullptr, 10));
         pr[i].second = tmp.size();
         // cout << pr[i].first << " " << pr[i].second << endl;
     }
@@ -31,7 +31,7 @@ int main(){
     for(int i =0;i<n;i++){
         // cout << pr[i].first << " " << pr[i].second << endl;
     }
-    for(int i=0;pr[i].second=<6;i++){
+    for(int i=0;pr[i].second<6;i++){
         if(pr[i].second==2){
             for(int j=0;j<n-1;j++){
                 if(pr[i].second==2 && pr[n-1-j].second==10 && pr[i].first+pr[n-1-j].first == 50){
@@ -65,7 +65,7 @@ int main(){
             }
         }
         else if(pr[i].second==6){
-            for(int j=1;pr[i+j].second!=6;j++){
+            for(int j=1;pr[i+j].second==6;j++){
                 if(pr[i].second==6 && pr[i+j].second==6 && pr[i].first+pr[i+j].first == 50){
                     ans+=2;
                 }
